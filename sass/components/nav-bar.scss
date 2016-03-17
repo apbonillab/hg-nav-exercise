@@ -24,6 +24,12 @@
       display: inline-block;
       color: $nav-bar-color;
       padding: 0 24px;
+      cursor: pointer;
+
+      &:hover{
+        background: $nav-bar-color;
+        color: $nav-bar-bg;
+      }
     }
   }
 }

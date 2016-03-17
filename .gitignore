@@ -32,3 +32,6 @@ node_modules
 
 #Webstorm ignored folder
 .idea/
+
+#Ignoring sass cache
+.sass-cache/

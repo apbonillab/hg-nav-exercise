@@ -1,8 +1,16 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-	// Project configuration.
 	grunt.initConfig({
-
+		sass: {
+			dist: {
+				files: {
+					'public/styles/site.css': 'sass/site.scss'
+				}
+			}
+		}
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-sass');
+
+	grunt.registerTask('default', ['sass']);
 };

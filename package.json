@@ -20,8 +20,11 @@
   },
   "dependencies": {
     "express": "~4.2.0",
+    "morgan": "~1.0.0"
+  },
+  "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-sass": "^1.0.0",
-    "morgan": "~1.0.0"
+    "grunt-contrib-watch": "^1.0.0"
   }
 }

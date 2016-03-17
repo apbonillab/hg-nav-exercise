@@ -5,10 +5,25 @@
   background: $nav-bar-bg;
   width: 100%;
   height: $nav-bar-height;
-  
+
   .logo{
     width: 60px;
     height: 24px;
-    padding: 24px;
+    padding: 24px 48px 24px 24px;
+  }
+
+  ul{
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    line-height: $nav-bar-height;
+
+    li{
+      display: inline-block;
+      color: $nav-bar-color;
+      padding: 0 24px;
+    }
   }
 }

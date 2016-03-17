@@ -59,7 +59,8 @@ section.banner {
 
 section.container {
   margin: 60px auto;
-  width: 968px; }
+  width: 968px;
+  text-align: justify; }
 
 /* COMPONENTS */
 #nav-bar {
@@ -72,6 +73,17 @@ section.container {
   #nav-bar .logo {
     width: 60px;
     height: 24px;
-    padding: 24px; }
+    padding: 24px 48px 24px 24px; }
+  #nav-bar ul {
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    line-height: 72px; }
+    #nav-bar ul li {
+      display: inline-block;
+      color: #fff;
+      padding: 0 24px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,16 +1,32 @@
 body {
-  background: #ec008c;
-  color: #fff;
+  background: #fff;
+  color: #000;
+  margin: 0;
 }
 
-h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  margin: 0;
-  font: 20vmin/1 HUGEAvantGardeBold;
-  letter-spacing: -0.06em;
-  text-align: center;
+section.banner {
+  width: 100%;
+  margin-top: $nav-bar-height;
+  min-height: 640px;
+  background: url(../images/background-image.jpg) center;
+  background-size: cover;
+  position: relative;
+
+  h1 {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin: 0;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+}
+
+section.container{
+  margin: 60px auto;
+  width: 968px;
 }

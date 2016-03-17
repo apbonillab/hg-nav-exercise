@@ -12,22 +12,66 @@
   font-style: italic;
   font-weight: normal;
   src: url("/fonts/GalaxieCopernicus-BookItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/GalaxieCopernicus-BookItalic.woff") format("woff"), url("/fonts/GalaxieCopernicus-BookItalic.svg#svgFontName") format("svg"); }
+.primary-navigation {
+  font: 21px/48px 'HUGEAvantGardeBold'; }
+
+.secondary-navigation {
+  font: 16px/48px 'Galaxie'; }
+
+.headline {
+  font: 120px/132px 'HUGEAvantGardeBold'; }
+
+body {
+  font: 24px/36px 'Galaxie'; }
+
+.headline.mobile {
+  font: 44px/48px 'HUGEAvantGardeBold'; }
+
+.body.mobile {
+  font: 14px/24px 'Galaxie'; }
+
+.copyright.mobile {
+  font: 12px/16px 'Helvetica Neue Regular'; }
+
 /* DEFAULT PAGE STYLES */
 body {
-  background: #ec008c;
-  color: #fff; }
+  background: #fff;
+  color: #000;
+  margin: 0; }
 
-h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  margin: 0;
-  font: 20vmin/1 HUGEAvantGardeBold;
-  letter-spacing: -0.06em;
-  text-align: center; }
+section.banner {
+  width: 100%;
+  margin-top: 72px;
+  min-height: 640px;
+  background: url(../images/background-image.jpg) center;
+  background-size: cover;
+  position: relative; }
+  section.banner h1 {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin: 0;
+    letter-spacing: -0.02em;
+    text-align: center; }
+
+section.container {
+  margin: 60px auto;
+  width: 968px; }
 
 /* COMPONENTS */
+#nav-bar {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background: #ec008c;
+  width: 100%;
+  height: 72px; }
+  #nav-bar .logo {
+    width: 60px;
+    height: 24px;
+    padding: 24px; }
 
 /*# sourceMappingURL=main.css.map */

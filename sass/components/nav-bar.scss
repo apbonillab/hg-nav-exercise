@@ -1,0 +1,14 @@
+#nav-bar{
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background: $nav-bar-bg;
+  width: 100%;
+  height: $nav-bar-height;
+
+  .logo{
+    width: 60px;
+    height: 24px;
+    padding: 24px;
+  }
+}

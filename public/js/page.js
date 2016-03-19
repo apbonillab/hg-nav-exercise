@@ -1,0 +1,1 @@
+var hugeNav = new HugeNav();

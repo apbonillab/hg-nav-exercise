@@ -27,17 +27,22 @@ body.hg-nav-opened{
 }
 
 #hg-nav{
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  background: $nav-bar-bg;
-  width: 100%;
-  height: $nav-bar-height;
 
-  .toggle-open{
-    visibility: none;
+  height: 100%;
+
+  .nav-bar{
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background: $nav-bar-bg;
+    width: 100%;
+    height: $nav-bar-height;
+  }
+
+  #toggle-open{
+    display: none;
     @include media-query(mobile){
-      visibility: visible;
+      display: inline-block;
     }
   }
 
@@ -66,13 +71,15 @@ body.hg-nav-opened{
     @include media-query(mobile) {
       position: absolute;
       left: -100%;
-      top: 72px;
+      top: $nav-bar-height;
+      bottom: 0;
       width: 80%;
       visibility: hidden;
       background: white;
       transition: visibility 1s, left 0.3s linear;
       padding-top: 12px;
       line-height: 48px;
+      z-index: 2;
     }
 
     >li{

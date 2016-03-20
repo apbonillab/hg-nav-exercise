@@ -7,14 +7,17 @@
       afterRender: function(){}
     };
 
-    if (arguments[0] && typeof arguments[0] === "object") {
+    if (arguments[0] && typeof arguments[0] === 'object') {
       this.opts = extendDefaults(defaults, arguments[0]);
     }else{
       this.opts = defaults;
     }
 
     var bodyElement = document.querySelector('body');
-    bodyElement.addEventListener("click", bodyClickEvent.bind(this));
+    bodyElement.addEventListener('click', bodyClickEvent.bind(this));
+    
+    var hamburgerElement = document.getElementById('toggle-open');
+    hamburgerElement.addEventListener('click', openMenuEvent.bind(this));
 
     loadMenuFromJson.call(this);
   };
@@ -57,7 +60,7 @@
 
         var spanLabel = document.createElement('span');
         spanLabel.innerHTML = itemObj.label;
-        spanLabel.addEventListener("click", openMenuEvent);
+        spanLabel.addEventListener('click', openMenuEvent);
 
         navLi.appendChild(spanLabel);
         navLi.appendChild(subNavUl);
@@ -65,7 +68,7 @@
         var menuLink = document.createElement('a');
         menuLink.setAttribute('href', itemObj.url);
         menuLink.innerHTML = itemObj.label;
-        navLi.addEventListener("click", closeMenu);
+        navLi.addEventListener('click', closeMenu);
         navLi.appendChild(menuLink);
       }
       navMainUl.appendChild(navLi);

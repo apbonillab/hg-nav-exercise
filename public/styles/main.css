@@ -15,7 +15,7 @@
 .primary-navigation, #hg-nav > ul {
   font: 21px/48px 'HUGEAvantGardeBold'; }
 
-.secondary-navigation {
+.secondary-navigation, #hg-nav > ul > li ul {
   font: 16px/48px 'Galaxie'; }
 
 .headline {
@@ -75,12 +75,13 @@ section.container {
     width: 60px;
     height: 24px;
     padding: 24px 48px 24px 24px; }
-  #hg-nav > ul {
+  #hg-nav ul {
     list-style: none;
+    margin: 0;
+    padding: 0; }
+  #hg-nav > ul {
     display: inline-block;
     vertical-align: top;
-    margin: 0;
-    padding: 0;
     line-height: 72px; }
     #hg-nav > ul > li {
       display: inline-block;
@@ -88,14 +89,24 @@ section.container {
       padding: 0 24px;
       cursor: pointer;
       position: relative; }
-      #hg-nav > ul > li:hover {
+      #hg-nav > ul > li:hover, #hg-nav > ul > li.opened {
         background: #fff;
         color: #ec008c; }
       #hg-nav > ul > li ul {
-        display: none; }
+        color: initial;
+        display: none;
+        background: #fff;
+        padding: 12px 0; }
+        #hg-nav > ul > li ul li {
+          padding: 0 24px;
+          white-space: nowrap; }
+          #hg-nav > ul > li ul li:hover {
+            background: #eee;
+            color: #ec008c; }
       #hg-nav > ul > li.opened ul {
         position: absolute;
         display: block;
-        top: 100%; }
+        top: 100%;
+        left: 0; }
 
 /*# sourceMappingURL=main.css.map */

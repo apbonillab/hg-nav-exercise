@@ -12,13 +12,16 @@
     padding: 24px 48px 24px 24px;
   }
 
-  >ul{
-    @extend .primary-navigation;
+  ul{
     list-style: none;
-    display: inline-block;
-    vertical-align: top;
     margin: 0;
     padding: 0;
+  }
+
+  >ul{
+    @extend .primary-navigation;
+    display: inline-block;
+    vertical-align: top;
     line-height: $nav-bar-height;
 
     >li{
@@ -28,13 +31,27 @@
       cursor: pointer;
       position: relative;
 
-      &:hover{
+      &:hover, &.opened{
         background: $nav-bar-color;
         color: $nav-bar-bg;
       }
 
       ul{
+        @extend .secondary-navigation;
+        color: initial;
         display: none;
+        background: #fff;
+        padding: 12px 0;
+
+        li{
+          padding: 0 24px;
+          white-space: nowrap;
+
+          &:hover{
+            background: $light-gray;
+            color: $magenta;
+          }
+        }
       }
 
       &.opened{
@@ -42,6 +59,7 @@
           position: absolute;
           display: block;
           top: 100%;
+          left: 0;
         }
       }
     }

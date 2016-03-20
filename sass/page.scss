@@ -2,21 +2,45 @@ body {
   background: #fff;
   color: #000;
   margin: 0;
+  overflow: hidden;
+
+  &.hg-nav-opened{
+    @include media-query(mobile){
+      #page-container{
+        left: 80%;
+      }
+    }
+  }
 }
+
 
 a{
   text-decoration: none;
 }
+#page-container{
+  position: absolute;
+  top: $nav-bar-height;
+  width: 100%;
+  left: 0%;
+  transition: left 0.3s linear;
+}
 
 section.banner {
   width: 100%;
-  margin-top: $nav-bar-height;
-  min-height: 640px;
-  background: url(../images/background-image.jpg) center;
-  background-size: cover;
   position: relative;
 
+  .banner-img{
+    background: url(../images/background-image.jpg) center;
+    background-size: cover;
+    min-height: 640px;
+
+    @include media-query(mobile) {
+      min-height: 240px;
+    }
+  }
+
   h1 {
+    @extend .headline;
     color: #fff;
     position: absolute;
     top: 50%;
@@ -27,6 +51,17 @@ section.banner {
     letter-spacing: -0.02em;
     text-align: center;
     width: 968px;
+
+    @include media-query(mobile) {
+      color: #000;
+      display: block;
+      position: relative;
+      width: auto;
+      transform: none;
+      left: 0;
+      padding: 50px 24px;
+      text-align: left;
+    }
   }
 }
 
@@ -34,6 +69,14 @@ section.container{
   margin: 60px auto;
   width: 968px;
   text-align: justify;
+
+  @include media-query(mobile){
+    width: auto;
+    padding: 50px 24px;
+    padding-top: 0;
+    margin: 0 auto;
+
+  }
 }
 
 ::selection {

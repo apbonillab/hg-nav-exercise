@@ -67,7 +67,7 @@ describe('hg-nav tests...', function() {
         var eventClick = new Event('click');
         var navLi = navUl.lastElementChild;
         navLi.firstChild.dispatchEvent(eventClick);
-        assert.equal(navUl.lastElementChild.classList[0], 'opened');
+        assert.equal(navLi.classList[0], 'opened');
         done();
       } });
     });

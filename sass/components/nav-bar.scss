@@ -6,7 +6,7 @@
   right: 0;
   background: #000;
   opacity: 0;
-  transition: visibility 1s, opacity 0.5s linear;
+  transition: visibility 1s, opacity 0.3s linear;
   visibility: hidden;
 }
 
@@ -14,6 +14,15 @@ body.hg-nav-opened{
   .overflow{
     opacity: 0.5;
     visibility: visible;
+  }
+
+  #hg-nav{
+    >ul{
+      @include media-query(mobile){
+        visibility: visible;
+        left: 0;
+      }
+    }
   }
 }
 
@@ -25,10 +34,21 @@ body.hg-nav-opened{
   width: 100%;
   height: $nav-bar-height;
 
+  .toggle-open{
+    visibility: none;
+    @include media-query(mobile){
+      visibility: visible;
+    }
+  }
+
   .logo{
     width: 60px;
     height: 24px;
     padding: 24px 48px 24px 24px;
+
+    @include media-query(mobile){
+      visibility: hidden;
+    }
   }
 
   ul{
@@ -43,6 +63,18 @@ body.hg-nav-opened{
     vertical-align: top;
     line-height: $nav-bar-height;
 
+    @include media-query(mobile) {
+      position: absolute;
+      left: -100%;
+      top: 72px;
+      width: 80%;
+      visibility: hidden;
+      background: white;
+      transition: visibility 1s, left 0.3s linear;
+      padding-top: 12px;
+      line-height: 48px;
+    }
+
     >li{
       display: inline-block;
       color: $nav-bar-color;
@@ -50,7 +82,11 @@ body.hg-nav-opened{
       cursor: pointer;
       position: relative;
 
-      >a, span{
+      @include media-query(mobile){
+        display: block;
+      }
+
+      >a, >span{
         color: $nav-bar-color;
         display: block;
         padding: 0 24px;
@@ -96,6 +132,15 @@ body.hg-nav-opened{
           left: 0;
         }
       }
+
+      @include media-query(mobile){
+        color: #000;
+
+        >a, >span{
+          color: #000;
+        }
+      }
+
     }
   }
 }

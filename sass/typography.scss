@@ -8,20 +8,20 @@
 
 .headline{
   font: 120px/132px 'HUGEAvantGardeBold';
+
+  @include media-query(mobile) {
+    font: 44px/48px 'HUGEAvantGardeBold';
+  }
 }
 
 body{
   font: 24px/36px 'Galaxie';
+
+  @include media-query(mobile) {
+    font: 14px/24px 'Galaxie';
+  }
 }
 
-.headline.mobile{
-  font: 44px/48px 'HUGEAvantGardeBold';
-}
-
-.body.mobile{
-  font: 14px/24px 'Galaxie';
-}
-
-.copyright.mobile{
+.copyright-mobile{
   font: 12px/16px 'Helvetica Neue Regular';
 }

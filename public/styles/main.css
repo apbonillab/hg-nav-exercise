@@ -63,30 +63,30 @@ section.container {
   text-align: justify; }
 
 /* COMPONENTS */
-#nav-bar {
+#hg-nav {
   position: fixed;
   top: 0;
   z-index: 2;
   background: #ec008c;
   width: 100%;
   height: 72px; }
-  #nav-bar .logo {
+  #hg-nav .logo {
     width: 60px;
     height: 24px;
     padding: 24px 48px 24px 24px; }
-  #nav-bar ul {
+  #hg-nav ul {
     list-style: none;
     display: inline-block;
     vertical-align: top;
     margin: 0;
     padding: 0;
     line-height: 72px; }
-    #nav-bar ul li {
+    #hg-nav ul li {
       display: inline-block;
       color: #fff;
       padding: 0 24px;
       cursor: pointer; }
-      #nav-bar ul li:hover {
+      #hg-nav ul li:hover {
         background: #fff;
         color: #ec008c; }
 

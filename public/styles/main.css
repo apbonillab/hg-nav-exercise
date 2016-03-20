@@ -48,9 +48,11 @@ a {
 
 #page-container {
   position: absolute;
+  overflow: auto;
   top: 72px;
-  width: 100%;
   left: 0%;
+  bottom: 0;
+  width: 100%;
   transition: left 0.3s linear; }
 
 section.banner {
@@ -146,16 +148,20 @@ body.hg-nav-opened .overflow {
     margin: 0;
     padding: 0; }
   #hg-nav > ul {
-    display: inline-block;
-    vertical-align: top;
-    line-height: 72px; }
+    position: absolute;
+    width: 100%;
+    margin-left: 132px;
+    line-height: 72px;
+    z-index: 3; }
     @media only screen and (max-width: 768px) {
       #hg-nav > ul {
         position: absolute;
         left: -100%;
+        margin-left: 0;
         top: 72px;
         bottom: 0;
         width: 80%;
+        overflow-y: auto;
         visibility: hidden;
         background: white;
         transition: visibility 1s, left 0.3s linear;
@@ -168,9 +174,8 @@ body.hg-nav-opened .overflow {
       padding: 0;
       cursor: pointer;
       position: relative; }
-      @media only screen and (max-width: 768px) {
-        #hg-nav > ul > li {
-          display: block; } }
+      #hg-nav > ul > li img {
+        display: none; }
       #hg-nav > ul > li > a, #hg-nav > ul > li > span {
         color: #fff;
         display: block;
@@ -179,6 +184,20 @@ body.hg-nav-opened .overflow {
         background: #fff; }
         #hg-nav > ul > li:hover > a, #hg-nav > ul > li:hover span, #hg-nav > ul > li.opened > a, #hg-nav > ul > li.opened span {
           color: #ec008c; }
+      @media only screen and (max-width: 768px) {
+        #hg-nav > ul > li {
+          display: block; }
+          #hg-nav > ul > li.opened img {
+            transform: rotate(180deg);
+            transition: transform 0.1s; }
+          #hg-nav > ul > li img {
+            float: right;
+            width: 24px;
+            margin-top: 10px;
+            display: block; }
+          #hg-nav > ul > li > a:hover, #hg-nav > ul > li > span:hover {
+            color: #000;
+            background: #eee; } }
       #hg-nav > ul > li ul {
         display: none;
         overflow: hidden;
@@ -198,6 +217,10 @@ body.hg-nav-opened .overflow {
         display: block;
         top: 100%;
         left: 0; }
+        @media only screen and (max-width: 768px) {
+          #hg-nav > ul > li.opened ul {
+            position: inherit;
+            padding: 0; } }
       @media only screen and (max-width: 768px) {
         #hg-nav > ul > li {
           color: #000; }

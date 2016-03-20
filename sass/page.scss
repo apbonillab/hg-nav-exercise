@@ -17,11 +17,14 @@ body {
 a{
   text-decoration: none;
 }
+
 #page-container{
   position: absolute;
+  overflow: auto;
   top: $nav-bar-height;
-  width: 100%;
   left: 0%;
+  bottom: 0;
+  width: 100%;
   transition: left 0.3s linear;
 }
 

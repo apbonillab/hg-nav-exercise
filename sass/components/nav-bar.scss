@@ -64,16 +64,20 @@ body.hg-nav-opened{
 
   >ul{
     @extend .primary-navigation;
-    display: inline-block;
-    vertical-align: top;
+    position: absolute;
+    width: 100%;
+    margin-left: 132px;
     line-height: $nav-bar-height;
+    z-index: 3;
 
     @include media-query(mobile) {
       position: absolute;
       left: -100%;
+      margin-left: 0;
       top: $nav-bar-height;
       bottom: 0;
       width: 80%;
+      overflow-y: auto;
       visibility: hidden;
       background: white;
       transition: visibility 1s, left 0.3s linear;
@@ -89,8 +93,8 @@ body.hg-nav-opened{
       cursor: pointer;
       position: relative;
 
-      @include media-query(mobile){
-        display: block;
+      img{
+        display: none;
       }
 
       >a, >span{
@@ -104,6 +108,31 @@ body.hg-nav-opened{
 
         >a, span{
           color: $nav-bar-bg;
+        }
+      }
+
+      @include media-query(mobile){
+        display: block;
+
+        &.opened{
+          img{
+            transform: rotate(180deg);
+            transition: transform 0.1s;
+          }
+        }
+
+        img{
+          float: right;
+          width: 24px;
+          margin-top: 10px;
+          display: block;
+        }
+
+        >a, >span{
+          &:hover {
+            color: #000;
+            background: $light-gray;
+          }
         }
       }
 
@@ -137,6 +166,11 @@ body.hg-nav-opened{
           display: block;
           top: 100%;
           left: 0;
+
+          @include media-query(mobile){
+            position: inherit;
+            padding: 0;
+          }
         }
       }
 

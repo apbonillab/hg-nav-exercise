@@ -53,6 +53,7 @@
           var subnavLink = document.createElement('a');
           subnavLink.setAttribute('href', subItemObj.url);
           subnavLink.innerHTML = subItemObj.label;
+          subnavLink.addEventListener('click', closeMenu);
           subnavLi.appendChild(subnavLink);
 
           subNavUl.appendChild(subnavLi);
@@ -61,6 +62,10 @@
         var spanLabel = document.createElement('span');
         spanLabel.innerHTML = itemObj.label;
         spanLabel.addEventListener('click', openMenuEvent);
+
+        var chevronArrow = document.createElement('img');
+        chevronArrow.setAttribute('src', 'images/chevron.svg');
+        spanLabel.appendChild(chevronArrow);
 
         navLi.appendChild(spanLabel);
         navLi.appendChild(subNavUl);

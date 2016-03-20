@@ -65,8 +65,9 @@ describe('hg-nav tests...', function() {
       nav = new HugeNav({ navElement: 'hg-nav', afterRender: function(){
         var navUl = document.getElementById('hg-nav').firstElementChild;
         var eventClick = new Event('click');
-        navUl.firstElementChild.dispatchEvent(eventClick);
-        assert.equal(navUl.firstElementChild.classList[0], 'opened');
+        var navLi = navUl.lastElementChild;
+        navLi.firstChild.dispatchEvent(eventClick);
+        assert.equal(navUl.lastElementChild.classList[0], 'opened');
         done();
       } });
     });

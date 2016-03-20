@@ -15,7 +15,7 @@
   },
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "grunt karma",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-jsdoc": "^1.1.0",
+    "grunt-karma": "^0.12.2",
     "karma": "^0.13.22",
     "karma-chai": "^0.1.0",
     "karma-mocha": "^0.2.2",

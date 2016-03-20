@@ -103,6 +103,13 @@ body.hg-nav-opened{
       padding-top: 12px;
       line-height: 48px;
       z-index: 2;
+
+      &::after{
+        font: 12px/16px 'Helvetica Neue Regular';
+        content: '2014 Huge. All Rights Reserved.';
+        margin-left: 24px;
+        line-height: 48px;
+      }
     }
 
     >li{

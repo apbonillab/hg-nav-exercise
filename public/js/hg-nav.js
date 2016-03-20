@@ -43,6 +43,7 @@
   }
 
   function buildMenu(menuObj){
+
     var navElement = document.getElementById(this.opts.navElement),
         navMainUl = document.createElement('ul');
 
@@ -82,6 +83,7 @@
         menuLink.setAttribute('href', itemObj.url);
         menuLink.innerHTML = itemObj.label;
         navLi.addEventListener('click', closeMenu.bind(this));
+
         navLi.appendChild(menuLink);
       }
       navMainUl.appendChild(navLi);

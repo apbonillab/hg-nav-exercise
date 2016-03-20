@@ -29,6 +29,10 @@ body.hg-nav-opened{
       margin-left: -72px;
       background-image: url(../images/toggle-close.svg);
     }
+    
+    .logo{
+      left: 0;
+    }
   }
 }
 
@@ -65,7 +69,9 @@ body.hg-nav-opened{
     padding: 24px 48px 24px 24px;
 
     @include media-query(mobile){
-      visibility: hidden;
+      position: absolute;
+      transition: left 0.3s linear;
+      left: -100%;
     }
   }
 

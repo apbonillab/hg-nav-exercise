@@ -1,8 +1,11 @@
 (function() {
   this.HugeNav = function() {
 
+    this.openedBodyClass = 'hg-nav-opened';
+
     var defaults = {
       navElement: 'hg-nav',
+      chevronImage: 'images/chevron.svg',
       jsonDataUrl: '/api/nav.json',
       afterRender: function(){}
     };
@@ -17,7 +20,9 @@
     bodyElement.addEventListener('click', bodyClickEvent.bind(this));
     
     var hamburgerElement = document.getElementById('toggle-open');
-    hamburgerElement.addEventListener('click', toggleMenu.bind(this));
+    if(hamburgerElement){
+      hamburgerElement.addEventListener('click', toggleMenu.bind(this));
+    }
 
     loadMenuFromJson.call(this);
   };
@@ -28,7 +33,8 @@
 
     req.onload = function (e) {
       buildMenu.call(_this, e.target.response);
-        _this.opts.afterRender();
+
+      _this.opts.afterRender();
     };
 
     req.open('GET', this.opts.jsonDataUrl, true);
@@ -53,7 +59,7 @@
           var subnavLink = document.createElement('a');
           subnavLink.setAttribute('href', subItemObj.url);
           subnavLink.innerHTML = subItemObj.label;
-          subnavLink.addEventListener('click', closeMenu);
+          subnavLink.addEventListener('click', closeMenu.bind(this));
           subnavLi.appendChild(subnavLink);
 
           subNavUl.appendChild(subnavLi);
@@ -61,11 +67,13 @@
 
         var spanLabel = document.createElement('span');
         spanLabel.innerHTML = itemObj.label;
-        spanLabel.addEventListener('click', openMenuEvent);
+        spanLabel.addEventListener('click', openMenuEvent.bind(this));
 
-        var chevronArrow = document.createElement('img');
-        chevronArrow.setAttribute('src', 'images/chevron.svg');
-        spanLabel.appendChild(chevronArrow);
+        if(this.opts.chevronImage){
+          var chevronArrow = document.createElement('img');
+          chevronArrow.setAttribute('src', this.opts.chevronImage);
+          spanLabel.appendChild(chevronArrow);
+        }
 
         navLi.appendChild(spanLabel);
         navLi.appendChild(subNavUl);
@@ -73,7 +81,7 @@
         var menuLink = document.createElement('a');
         menuLink.setAttribute('href', itemObj.url);
         menuLink.innerHTML = itemObj.label;
-        navLi.addEventListener('click', closeMenu);
+        navLi.addEventListener('click', closeMenu.bind(this));
         navLi.appendChild(menuLink);
       }
       navMainUl.appendChild(navLi);
@@ -84,16 +92,16 @@
   function bodyClickEvent(e){
     var navElement = closest(e.target, 'nav');
     if(!navElement){
-      closeMenu();
+      closeMenu.apply(this);
     }
   }
 
   function toggleMenu(){
     var bodyElement = document.querySelector('body');
-    if(bodyElement.classList.contains('hg-nav-opened')){
-      bodyElement.classList.remove('hg-nav-opened');
+    if(bodyElement.classList.contains(this.openedBodyClass)){
+      bodyElement.classList.remove(this.openedBodyClass);
     }else{
-      bodyElement.classList.add('hg-nav-opened');
+      bodyElement.classList.add(this.openedBodyClass);
     }
   }
 
@@ -106,7 +114,7 @@
     }
 
     e.target.parentNode.classList.add('opened');
-    bodyElement.classList.add('hg-nav-opened');
+    bodyElement.classList.add(this.openedBodyClass);
   }
 
   function closeMenu(){
@@ -115,7 +123,7 @@
     if(openedMenu){
       openedMenu.classList.remove('opened');
     }
-    bodyElement.classList.remove('hg-nav-opened');
+    bodyElement.classList.remove(this.openedBodyClass);
   }
 
   function extendDefaults(source, properties) {
@@ -138,5 +146,4 @@
     }while(element = element.parentNode);
     return null;
   }
-
 }());

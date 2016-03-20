@@ -125,6 +125,8 @@ body.hg-nav-opened #hg-nav #toggle-open {
   left: 100%;
   margin-left: -72px;
   background-image: url(../images/toggle-close.svg); }
+body.hg-nav-opened #hg-nav .logo {
+  left: 0; }
 
 #hg-nav {
   height: 100%; }
@@ -153,7 +155,9 @@ body.hg-nav-opened #hg-nav #toggle-open {
     padding: 24px 48px 24px 24px; }
     @media only screen and (max-width: 768px) {
       #hg-nav .logo {
-        visibility: hidden; } }
+        position: absolute;
+        transition: left 0.3s linear;
+        left: -100%; } }
   #hg-nav ul {
     list-style: none;
     margin: 0;

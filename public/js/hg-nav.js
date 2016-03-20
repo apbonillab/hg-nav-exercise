@@ -1,11 +1,8 @@
 (function() {
   this.HugeNav = function() {
 
-    this.overlay = null;
-
     var defaults = {
       navElement: 'hg-nav',
-      openedMenuClass: 'opened',
       jsonDataUrl: '/api/nav.json',
       afterRender: function(){}
     };
@@ -52,13 +49,19 @@
         }
         navLi.appendChild(subNavUl);
       }
+
+      navLi.addEventListener("click", openMenuEvent);
       navMainUl.appendChild(navLi);
     }
     navElement.appendChild(navMainUl);
   }
 
-  function initializeMenuEvent(){
-
+  function openMenuEvent(e){
+    var openedMenu = document.querySelector(".opened");
+    if(openedMenu){
+      openedMenu.classList.remove('opened');
+    }
+    e.target.classList.add('opened');
   }
 
   function extendDefaults(source, properties) {

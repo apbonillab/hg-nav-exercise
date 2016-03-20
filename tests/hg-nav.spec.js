@@ -49,11 +49,27 @@ describe('hg-nav tests...', function() {
   });
 
   describe('Testing if is creating DOM elements by Json properly', function () {
-    it('should DOM has been processed inside afterRender function', function (done) {
+
+    it('should Base UL has been processed inside afterRender function', function (done) {
       nav = new HugeNav({ navElement: 'hg-nav', afterRender: function(){
-        console.log(document.getElementById('hg-nav').innerHTML);
+        var navUl = document.getElementById('hg-nav').firstElementChild;
+        assert.equal(navUl.tagName, 'UL');
         done();
       } });
     });
   });
+
+  describe('Testing menu click event', function(){
+
+    it('should ADD opened class on click on Nav Item (li)', function (done) {
+      nav = new HugeNav({ navElement: 'hg-nav', afterRender: function(){
+        var navUl = document.getElementById('hg-nav').firstElementChild;
+        var eventClick = new Event('click');
+        navUl.firstElementChild.dispatchEvent(eventClick);
+        assert.equal(navUl.firstElementChild.classList[0], 'opened');
+        done();
+      } });
+    });
+  });
+
 });

@@ -121,6 +121,10 @@ body.hg-nav-opened .overflow {
   body.hg-nav-opened #hg-nav > ul {
     visibility: visible;
     left: 0; } }
+body.hg-nav-opened #hg-nav #toggle-open {
+  left: 100%;
+  margin-left: -72px;
+  background-image: url(../images/toggle-close.svg); }
 
 #hg-nav {
   height: 100%; }
@@ -132,10 +136,17 @@ body.hg-nav-opened .overflow {
     width: 100%;
     height: 72px; }
   #hg-nav #toggle-open {
-    display: none; }
+    display: none;
+    background: url(../images/toggle-open.svg) no-repeat center;
+    width: 72px;
+    height: 72px;
+    cursor: pointer; }
     @media only screen and (max-width: 768px) {
       #hg-nav #toggle-open {
-        display: inline-block; } }
+        display: inline-block;
+        transition: left 0.3s linear;
+        position: absolute;
+        left: 0; } }
   #hg-nav .logo {
     width: 60px;
     height: 24px;
@@ -187,6 +198,8 @@ body.hg-nav-opened .overflow {
       @media only screen and (max-width: 768px) {
         #hg-nav > ul > li {
           display: block; }
+          #hg-nav > ul > li.opened > span {
+            color: #000; }
           #hg-nav > ul > li.opened img {
             transform: rotate(180deg);
             transition: transform 0.1s; }
@@ -207,7 +220,8 @@ body.hg-nav-opened .overflow {
           padding: 0 24px;
           white-space: nowrap; }
           #hg-nav > ul > li ul li a {
-            color: #000; }
+            color: #000;
+            display: block; }
           #hg-nav > ul > li ul li:hover {
             background: #eee; }
             #hg-nav > ul > li ul li:hover a {

@@ -9,7 +9,7 @@ module.exports = function(config) {
       '*.js'
     ],
 
-    watch: true,
+    singleRun: true,
 
     phantomjsLauncher: {
       exitOnResourceError: true

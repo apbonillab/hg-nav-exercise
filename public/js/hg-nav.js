@@ -57,9 +57,9 @@
 
         var spanLabel = document.createElement('span');
         spanLabel.innerHTML = itemObj.label;
-        navLi.appendChild(spanLabel);
+        spanLabel.addEventListener("click", openMenuEvent);
 
-        navLi.addEventListener("click", openMenuEvent);
+        navLi.appendChild(spanLabel);
         navLi.appendChild(subNavUl);
       }else{
         var menuLink = document.createElement('a');
@@ -86,6 +86,7 @@
     if(openedMenu){
       openedMenu.classList.remove('opened');
     }
+
     e.target.parentNode.classList.add('opened');
     bodyElement.classList.add('hg-nav-opened');
   }

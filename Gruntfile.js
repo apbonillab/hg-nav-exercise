@@ -10,12 +10,24 @@ module.exports = function (grunt) {
 		},
 		watch: {
 			files: ['sass/**/*.scss', 'public/js/**/*.js'],
-			tasks: ['sass']
+			tasks: ['sass', 'jsdoc']
+		},
+		jsdoc : {
+			dist : {
+				src: ['public/js/**/*.js'],
+				jsdoc: './node_modules/.bin/jsdoc',
+				options: {
+					private: true,
+					destination: 'doc',
+					showPrivate: true
+				}
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-jsdoc');
 
-	grunt.registerTask('default', ['sass', 'watch']);
+	grunt.registerTask('default', ['sass', 'jsdoc', 'watch']);
 };

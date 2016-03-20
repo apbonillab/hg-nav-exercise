@@ -12,6 +12,10 @@
     }else{
       this.opts = defaults;
     }
+
+    var bodyElement = document.querySelector('body');
+    bodyElement.addEventListener("click", bodyClickEvent.bind(this));
+
     loadMenuFromJson.call(this);
   };
 
@@ -30,38 +34,69 @@
   }
 
   function buildMenu(menuObj){
-    var navElement = document.getElementById(this.opts.navElement);
-
-    var navMainUl = document.createElement('ul');
+    var navElement = document.getElementById(this.opts.navElement),
+        navMainUl = document.createElement('ul');
 
     for(var i = 0; i < menuObj.items.length; i++){
       var navLi = document.createElement('li'),
           itemObj = menuObj.items[i];
-      navLi.innerHTML = itemObj.label;
 
       if(itemObj.items.length > 0){
         var subNavUl = document.createElement('ul');
         for(var j = 0; j < itemObj.items.length; j++){
           var subnavLi = document.createElement('li'),
               subItemObj = itemObj.items[j];
-          subnavLi.innerHTML = subItemObj.label;
+
+          var subnavLink = document.createElement('a');
+          subnavLink.setAttribute('href', subItemObj.url);
+          subnavLink.innerHTML = subItemObj.label;
+          subnavLi.appendChild(subnavLink);
+
           subNavUl.appendChild(subnavLi);
         }
-        navLi.appendChild(subNavUl);
-      }
 
-      navLi.addEventListener("click", openMenuEvent);
+        var spanLabel = document.createElement('span');
+        spanLabel.innerHTML = itemObj.label;
+        navLi.appendChild(spanLabel);
+
+        navLi.addEventListener("click", openMenuEvent);
+        navLi.appendChild(subNavUl);
+      }else{
+        var menuLink = document.createElement('a');
+        menuLink.setAttribute('href', itemObj.url);
+        menuLink.innerHTML = itemObj.label;
+        navLi.addEventListener("click", closeMenu);
+        navLi.appendChild(menuLink);
+      }
       navMainUl.appendChild(navLi);
     }
     navElement.appendChild(navMainUl);
   }
 
+  function bodyClickEvent(e){
+    var navElement = closest(e.target, 'nav');
+    if(!navElement){
+      closeMenu();
+    }
+  }
+
   function openMenuEvent(e){
-    var openedMenu = document.querySelector(".opened");
+    var openedMenu = document.querySelector('.opened'),
+        bodyElement = document.querySelector('body');
     if(openedMenu){
       openedMenu.classList.remove('opened');
     }
-    e.target.classList.add('opened');
+    e.target.parentNode.classList.add('opened');
+    bodyElement.classList.add('hg-nav-opened');
+  }
+
+  function closeMenu(){
+    var openedMenu = document.querySelector('.opened'),
+      bodyElement = document.querySelector('body');
+    if(openedMenu){
+      openedMenu.classList.remove('opened');
+    }
+    bodyElement.classList.remove('hg-nav-opened');
   }
 
   function extendDefaults(source, properties) {
@@ -73,4 +108,16 @@
     }
     return source;
   }
+
+  function closest(element, tagname) {
+    tagname = tagname.toLowerCase();
+    do
+    {
+      if(element.nodeName.toLowerCase() === tagname){
+        return element;
+      }
+    }while(element = element.parentNode);
+    return null;
+  }
+
 }());

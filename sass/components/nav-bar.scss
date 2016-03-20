@@ -1,3 +1,22 @@
+.overflow{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  opacity: 0;
+  transition: visibility 1s, opacity 0.5s linear;
+  visibility: hidden;
+}
+
+body.hg-nav-opened{
+  .overflow{
+    opacity: 0.5;
+    visibility: visible;
+  }
+}
+
 #hg-nav{
   position: fixed;
   top: 0;
@@ -27,19 +46,28 @@
     >li{
       display: inline-block;
       color: $nav-bar-color;
-      padding: 0 24px;
+      padding: 0;
       cursor: pointer;
       position: relative;
 
+      >a, span{
+        color: $nav-bar-color;
+        display: block;
+        padding: 0 24px;
+      }
+
       &:hover, &.opened{
         background: $nav-bar-color;
-        color: $nav-bar-bg;
+
+        >a, span{
+          color: $nav-bar-bg;
+        }
       }
 
       ul{
         @extend .secondary-navigation;
-        color: initial;
         display: none;
+        overflow: hidden;
         background: #fff;
         padding: 12px 0;
 
@@ -47,9 +75,15 @@
           padding: 0 24px;
           white-space: nowrap;
 
+          a{
+            color: #000;
+          }
+
           &:hover{
             background: $light-gray;
-            color: $magenta;
+            a{
+              color: $magenta;
+            }
           }
         }
       }

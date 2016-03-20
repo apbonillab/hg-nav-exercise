@@ -4,6 +4,10 @@ body {
   margin: 0;
 }
 
+a{
+  text-decoration: none;
+}
+
 section.banner {
   width: 100%;
   margin-top: $nav-bar-height;
@@ -30,4 +34,9 @@ section.container{
   margin: 60px auto;
   width: 968px;
   text-align: justify;
+}
+
+::selection {
+  background: $magenta;
+  color: #fff;
 }

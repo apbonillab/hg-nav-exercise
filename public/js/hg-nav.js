@@ -38,11 +38,22 @@
     var navMainUl = document.createElement('ul');
 
     for(var i = 0; i < menuObj.items.length; i++){
-      var navLi = document.createElement('li');
-      navLi.innerHTML = menuObj.items[i].label;
+      var navLi = document.createElement('li'),
+          itemObj = menuObj.items[i];
+      navLi.innerHTML = itemObj.label;
+
+      if(itemObj.items.length > 0){
+        var subNavUl = document.createElement('ul');
+        for(var j = 0; j < itemObj.items.length; j++){
+          var subnavLi = document.createElement('li'),
+              subItemObj = itemObj.items[j];
+          subnavLi.innerHTML = subItemObj.label;
+          subNavUl.appendChild(subnavLi);
+        }
+        navLi.appendChild(subNavUl);
+      }
       navMainUl.appendChild(navLi);
     }
-
     navElement.appendChild(navMainUl);
   }
 

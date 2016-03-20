@@ -12,7 +12,8 @@
     padding: 24px 48px 24px 24px;
   }
 
-  ul{
+  >ul{
+    @extend .primary-navigation;
     list-style: none;
     display: inline-block;
     vertical-align: top;
@@ -20,15 +21,28 @@
     padding: 0;
     line-height: $nav-bar-height;
 
-    li{
+    >li{
       display: inline-block;
       color: $nav-bar-color;
       padding: 0 24px;
       cursor: pointer;
+      position: relative;
 
       &:hover{
         background: $nav-bar-color;
         color: $nav-bar-bg;
+      }
+
+      ul{
+        display: none;
+      }
+
+      &.opened{
+        ul{
+          position: absolute;
+          display: block;
+          top: 100%;
+        }
       }
     }
   }

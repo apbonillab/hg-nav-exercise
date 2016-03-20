@@ -12,7 +12,7 @@
   font-style: italic;
   font-weight: normal;
   src: url("/fonts/GalaxieCopernicus-BookItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/GalaxieCopernicus-BookItalic.woff") format("woff"), url("/fonts/GalaxieCopernicus-BookItalic.svg#svgFontName") format("svg"); }
-.primary-navigation {
+.primary-navigation, #hg-nav > ul {
   font: 21px/48px 'HUGEAvantGardeBold'; }
 
 .secondary-navigation {
@@ -55,7 +55,8 @@ section.banner {
     transform: translate(-50%, -50%);
     margin: 0;
     letter-spacing: -0.02em;
-    text-align: center; }
+    text-align: center;
+    width: 968px; }
 
 section.container {
   margin: 60px auto;
@@ -74,20 +75,27 @@ section.container {
     width: 60px;
     height: 24px;
     padding: 24px 48px 24px 24px; }
-  #hg-nav ul {
+  #hg-nav > ul {
     list-style: none;
     display: inline-block;
     vertical-align: top;
     margin: 0;
     padding: 0;
     line-height: 72px; }
-    #hg-nav ul li {
+    #hg-nav > ul > li {
       display: inline-block;
       color: #fff;
       padding: 0 24px;
-      cursor: pointer; }
-      #hg-nav ul li:hover {
+      cursor: pointer;
+      position: relative; }
+      #hg-nav > ul > li:hover {
         background: #fff;
         color: #ec008c; }
+      #hg-nav > ul > li ul {
+        display: none; }
+      #hg-nav > ul > li.opened ul {
+        position: absolute;
+        display: block;
+        top: 100%; }
 
 /*# sourceMappingURL=main.css.map */

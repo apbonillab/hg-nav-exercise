@@ -51,7 +51,7 @@ describe('hg-nav tests...', function() {
   describe('Testing if is creating DOM elements by Json properly', function () {
 
     it('should Base UL has been processed inside afterRender function', function (done) {
-      nav = new HugeNav({ navElement: 'hg-nav', afterRender: function(){
+      nav = new HugeNav({ navElement: 'hg-nav', chevronImage: null, afterRender: function(){
         var navUl = document.getElementById('hg-nav').firstElementChild;
         assert.equal(navUl.tagName, 'UL');
         done();
@@ -62,7 +62,7 @@ describe('hg-nav tests...', function() {
   describe('Testing menu click event', function(){
 
     it('should ADD opened class on click on Nav Item (li)', function (done) {
-      nav = new HugeNav({ navElement: 'hg-nav', afterRender: function(){
+      nav = new HugeNav({ navElement: 'hg-nav', chevronImage: null, afterRender: function(){
         var navUl = document.getElementById('hg-nav').firstElementChild;
         var eventClick = new Event('click');
         var navLi = navUl.lastElementChild;

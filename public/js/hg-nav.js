@@ -31,11 +31,15 @@
       hamburgerElement.addEventListener('click', toggleMenu.bind(this));
     }
 
-    loadMenuFromJson.call(this, this.opts.jsonDataUrl, function(menuObj){
-      buildMenu.call(_this, _this.opts.navElement, menuObj);
+    if(this.opts.menuObj){
+      buildMenu.call(_this, _this.opts.navElement, this.opts.menuObj);
       _this.opts.afterRender();
-    });
-
+    }else{
+      loadMenuFromJson.call(this, this.opts.jsonDataUrl, function(menuObj){
+        buildMenu.call(_this, _this.opts.navElement, menuObj);
+        _this.opts.afterRender();
+      });
+    }
 
     /**
      * Private function to load menu data JSON from a URL.

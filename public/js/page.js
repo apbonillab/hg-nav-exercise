@@ -1,1 +1,3 @@
-var hugeNav = new HugeNav();
+var hugeNav = new HugeNav({ afterRender: function(){
+  console.log('backstopjs_ready');
+} });

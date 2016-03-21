@@ -27,6 +27,32 @@ module.exports = function (grunt) {
 			unit: {
 				configFile: 'tests/karma.conf.js'
 			}
+		},
+		backstop: {
+			setup: {
+				options : {
+					backstop_path: './bower_components/BackstopJS',
+					test_path: './tests/backstop',
+					setup: false,
+						configure: true
+				}
+				},
+				test: {
+					options : {
+						backstop_path: './bower_components/BackstopJS',
+						test_path: './tests/backstop',
+						create_references: false,
+							run_tests: true
+					}
+				},
+				reference: {
+					options : {
+						backstop_path: './bower_components/BackstopJS',
+						test_path: './tests/backstop',
+						create_references: true,
+							run_tests: false
+					}
+				}
 		}
 	});
 
@@ -34,6 +60,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-karma');
 	grunt.loadNpmTasks('grunt-jsdoc');
+	grunt.loadNpmTasks('grunt-backstop');
 
 	grunt.registerTask('default', ['sass', 'jsdoc', 'watch']);
 };

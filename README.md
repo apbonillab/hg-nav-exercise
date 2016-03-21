@@ -1,4 +1,4 @@
-# Huge Navigation Exercise
+# Huge Navigation Exercise [![Build Status](https://travis-ci.org/thiagog3/hg-nav-exercise.svg?branch=master)](https://travis-ci.org/thiagog3/hg-nav-exercise) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ## Overview
 
